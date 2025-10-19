@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <article data-testid="test-profile-card" class="profile-card">
+      <div class="inner-container">
+        <div class="upper-cont">
+          <p data-testid="test-user-date" id="date"></p>
+
+          <figure class="avatar">
+            <img
+              src="media/hngimg.jpg"
+              alt="Portrait of David Adams"
+              data-testid="test-user-avatar"
+              class="profile-img"
+            />
+          </figure>
+          <p data-testid="test-user-time" id="clock"></p>
+        </div>
+
+        <h2 data-testid="test-user-name">David Adams</h2>
+        <h2 class="field">@frontend dev</h2>
+
+        <p data-testid="test-user-bio" class="bio">
+          I'm a passionate frontend developer who loves building elegant,
+          responsive, and accessible web interfaces.
+        </p>
+
+        <section aria-labelledby="hobbies">
+          <h3 id="hobbies">Hobbies</h3>
+          <ul data-testid="test-user-hobbies" class="list">
+            <li>Coding</li>
+            <li>Design</li>
+            <li>Gaming</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="dislikes">
+          <h3 id="dislikes">Dislikes</h3>
+          <ul data-testid="test-user-dislikes" class="list">
+            <li>Slow internet</li>
+            <li>Messy code</li>
+            <li>Cluttered UI</li>
+          </ul>
+        </section>
+
+        <nav aria-label="social links" data-testid="test-user-social-links">
+          <ul class="social-links list">
+            <li>
+              <a
+                href="https://x.com/daviniz3?s=11"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="test-user-social-twitter"
+              >
+                <img src="media/x.png" alt="x-twitter" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/Diablo247"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="test-user-social-github"
+              >
+                <img src="media/github.png" alt="github" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://ng.linkedin.com/in/david-adams-b0228835b"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="test-user-social-linkedin"
+                ><img src="media/linkedin.png" alt="linkedin"
+              /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </article>
+
+    <script src="script.js"></script>
+  </body>
+</html>
