@@ -44,23 +44,25 @@
           responsive, and accessible web interfaces.
         </p>
 
-        <section aria-labelledby="hobbies">
-          <h3 id="hobbies">Hobbies</h3>
-          <ul data-testid="test-user-hobbies" class="list">
-            <li>Coding</li>
-            <li>Design</li>
-            <li>Gaming</li>
-          </ul>
-        </section>
+        <div class="traits">
+          <section class="traits-cont one" aria-labelledby="hobbies">
+            <h3 id="hobbies">Hobbies</h3>
+            <ul data-testid="test-user-hobbies" class="list">
+              <li>Coding</li>
+              <li>Design</li>
+              <li>Gaming</li>
+            </ul>
+          </section>
 
-        <section aria-labelledby="dislikes">
-          <h3 id="dislikes">Dislikes</h3>
-          <ul data-testid="test-user-dislikes" class="list">
-            <li>Slow internet</li>
-            <li>Messy code</li>
-            <li>Cluttered UI</li>
-          </ul>
-        </section>
+          <section class="traits-cont two" aria-labelledby="dislikes">
+            <h3 id="dislikes">Dislikes</h3>
+            <ul data-testid="test-user-dislikes" class="list">
+              <li>Slow internet</li>
+              <li>Messy code</li>
+              <li>Cluttered UI</li>
+            </ul>
+          </section>
+        </div>
 
         <nav aria-label="social links" data-testid="test-user-social-links">
           <ul class="social-links list">
@@ -98,6 +100,13 @@
       </div>
     </article>
 
+    <nav class="nav-bar" aria-label="Main navigation">
+      <ul class="inner-nav">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="aboutMe.html" class="nav-item">About Me</a></li>
+        <li><a href="contactMe.html" class="nav-item">Contact Me</a></li>
+      </ul>
+    </nav>
     <script src="script.js"></script>
   </body>
 </html>

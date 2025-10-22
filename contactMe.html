@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <article data-testid="test-profile-card" class="profile-card">
+      <div class="inner-container">
+        <header class="upper-cont">
+          <p data-testid="test-user-date" id="date"></p>
+
+          <p data-testid="test-user-time" id="clock"></p>
+        </header>
+
+        <main class="contact-main">
+          <div class="content">
+            <h2>Get in touch</h2>
+            <h3>Lets Work together</h3>
+          </div>
+
+          <form id="contact-form" novalidate>
+            <!----------------------------------- Full name -->
+            <div class="form-group">
+              <label for="contact-name">Full name</label>
+              <input
+                class="form-input"
+                id="contact-name"
+                name="name"
+                type="text"
+                data-testid="test-contact-name"
+                aria-describedby="error-contact-name"
+                required
+              />
+              <div
+                id="error-contact-name"
+                class="error"
+                data-testid="test-contact-error-name"
+                aria-live="polite"
+              ></div>
+            </div>
+
+            <!----------------------------------------------- Email -->
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input
+                class="form-input"
+                id="contact-email"
+                name="email"
+                type="email"
+                data-testid="test-contact-email"
+                aria-describedby="error-contact-email"
+                required
+              />
+              <div
+                id="error-contact-email"
+                class="error"
+                data-testid="test-contact-error-email"
+                aria-live="polite"
+              ></div>
+            </div>
+
+            <!------------------------------------------------------ Subject -->
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input
+                class="form-input"
+                id="contact-subject"
+                name="subject"
+                type="text"
+                data-testid="test-contact-subject"
+                aria-describedby="error-contact-subject"
+                required
+              />
+              <div
+                id="error-contact-subject"
+                class="error"
+                data-testid="test-contact-error-subject"
+                aria-live="polite"
+              ></div>
+            </div>
+
+            <!-------------------------------------------------------- Message -->
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea
+                class="form-input"
+                id="contact-message"
+                name="message"
+                rows="6"
+                data-testid="test-contact-message"
+                aria-describedby="error-contact-message"
+                required
+              ></textarea>
+              <div
+                id="error-contact-message"
+                class="error"
+                data-testid="test-contact-error-message"
+                aria-live="polite"
+              ></div>
+            </div>
+
+            <!---------------------------------------------------- Submit -->
+            <div class="form-actions">
+              <button
+                class="send-btn"
+                type="submit"
+                id="contact-submit"
+                data-testid="test-contact-submit"
+                aria-label="Send message"
+              >
+                Send Message
+              </button>
+            </div>
+
+            <!---------------------------------------------- Success message -->
+            <div
+              id="contact-success"
+              class="success hidden"
+              data-testid="test-contact-success"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </form>
+        </main>
+      </div>
+    </article>
+
+    <nav class="nav-bar" aria-label="Main navigation">
+      <ul class="inner-nav">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="aboutMe.html" class="nav-item">About Me</a></li>
+        <li><a href="contactMe.html" class="nav-item">Contact Me</a></li>
+      </ul>
+    </nav>
+    <script src="script.js"></script>
+  </body>
+</html>

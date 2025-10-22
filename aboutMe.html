@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <article data-testid="test-profile-card" class="profile-card">
+      <div class="inner-container">
+        <header class="upper-cont">
+          <p data-testid="test-user-date" id="date"></p>
+
+          <p data-testid="test-user-time" id="clock"></p>
+        </header>
+
+        <main data-testid="test-about-page">
+          <h1 class="page-head">About Me</h1>
+          <section data-testid="test-about-bio" class="card bio-sec">
+            <h2 class="sec-title">Bio</h2>
+            <p class="sec-content">
+              Hi, I’m David — a frontend developer who loves building visually
+              engaging and smooth user experiences. I turn pixels into clean,
+              functional code.
+            </p>
+          </section>
+
+          <section data-testid="test-about-goals" class="card goals-sec">
+            <h2 class="sec-title">Goals in this program</h2>
+            <p class="sec-content">
+              i am here in HNG13 to test myself how much i have grown since the
+              last cohort and to see places to improve on but ultimately i want
+              to be a finalist
+            </p>
+          </section>
+          <section data-testid="test-about-confidence" class="card areas-sec">
+            <h2 class="sec-title">Areas of Low Confidence</h2>
+            <p class="sec-content">
+              honestly when it comes to frontend typescript still seems hard
+            </p>
+          </section>
+          <section data-testid="test-about-future-note" class="card note-sec">
+            <h2 class="sec-title">Note to Futre Self</h2>
+            <p class="sec-content">
+              congrats am sure you made it to stage 10, keep winning
+            </p>
+          </section>
+          <section data-testid="test-about-extra" class="card extra-sec">
+            <h2 class="sec-title">Extra Thoughts</h2>
+            <p class="sec-content">
+              Am actually already into UI/UX and backend a liitle wanted to add
+              those tracks but might be to much for me now hopefully next
+            </p>
+          </section>
+        </main>
+      </div>
+    </article>
+
+    <nav class="nav-bar" aria-label="Main navigation">
+      <ul class="inner-nav">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="aboutMe.html" class="nav-item">About Me</a></li>
+        <li><a href="contactMe.html" class="nav-item">Contact Me</a></li>
+      </ul>
+    </nav>
+    <script src="script.js"></script>
+  </body>
+</html>
