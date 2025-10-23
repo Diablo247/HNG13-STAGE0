@@ -57,6 +57,12 @@ h2 {
   color: #808080;
 }
 
+.inner-nav li a:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  transform: translateY(-3px);
+}
+
 .nav-item.active {
   color: black;
 }
@@ -180,8 +186,8 @@ p {
 }
 
 .traits-cont {
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
   width: 125px;
 }
 
@@ -328,11 +334,28 @@ p {
 }
 
 .form-input {
+  padding-left: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid white;
   border-radius: 8px;
-  height: 25px;
+  height: 30px;
   width: 225px;
+  margin-bottom: 10px;
+  font-family: "Barlow Condensed";
+}
+
+.contact-main textarea {
+  height: 50px;
+  padding-top: 5px;
+}
+
+.form-input:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  transform: translateY(-3px);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
+  border-color: white;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .form-group label {
@@ -355,11 +378,18 @@ p {
 }
 
 .send-btn {
+  margin-top: 10px;
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid white;
-  border-radius: 8px;
-  height: 25px;
+  border-radius: 10px;
+  color: black;
+  font-size: 18px;
+  padding: 5px 10px;
   font-family: "Barlow Condensed";
+}
+
+.send-btn:hover {
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
 }
 
 .content h2,
@@ -386,6 +416,7 @@ p {
   .contact-main {
     flex-direction: column;
     width: 300px;
+    margin: 0;
   }
 
   .contact-main .content {
@@ -435,4 +466,25 @@ p {
     left: 5%;
     top: 40px;
   }
+}
+
+#form-feedback {
+  margin: 0;
+  min-height: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#form-feedback.show {
+  opacity: 1;
+}
+
+#form-feedback.error {
+  color: #aa4545;
+}
+
+#form-feedback.success {
+  color: #4bac60;
 }

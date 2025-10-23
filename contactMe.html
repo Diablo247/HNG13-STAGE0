@@ -27,7 +27,7 @@
 
           <p data-testid="test-user-time" id="clock"></p>
         </header>
-
+        <h1 class="page-head">Contact Me</h1>
         <main class="contact-main">
           <div class="content">
             <h2>Get in touch</h2>
@@ -47,12 +47,6 @@
                 aria-describedby="error-contact-name"
                 required
               />
-              <div
-                id="error-contact-name"
-                class="error"
-                data-testid="test-contact-error-name"
-                aria-live="polite"
-              ></div>
             </div>
 
             <!----------------------------------------------- Email -->
@@ -67,12 +61,6 @@
                 aria-describedby="error-contact-email"
                 required
               />
-              <div
-                id="error-contact-email"
-                class="error"
-                data-testid="test-contact-error-email"
-                aria-live="polite"
-              ></div>
             </div>
 
             <!------------------------------------------------------ Subject -->
@@ -87,12 +75,6 @@
                 aria-describedby="error-contact-subject"
                 required
               />
-              <div
-                id="error-contact-subject"
-                class="error"
-                data-testid="test-contact-error-subject"
-                aria-live="polite"
-              ></div>
             </div>
 
             <!-------------------------------------------------------- Message -->
@@ -107,12 +89,6 @@
                 aria-describedby="error-contact-message"
                 required
               ></textarea>
-              <div
-                id="error-contact-message"
-                class="error"
-                data-testid="test-contact-error-message"
-                aria-live="polite"
-              ></div>
             </div>
 
             <!---------------------------------------------------- Submit -->
@@ -130,8 +106,7 @@
 
             <!---------------------------------------------- Success message -->
             <div
-              id="contact-success"
-              class="success hidden"
+              id="form-feedback"
               data-testid="test-contact-success"
               role="status"
               aria-live="polite"

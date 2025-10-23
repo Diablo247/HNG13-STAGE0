@@ -1,9 +1,23 @@
 /*------------------------------------------------------ nav-bar */
-const currentPage = window.location.pathname.split("/").pop();
-document.querySelectorAll(".nav-item").forEach((link) => {
-  if (link.getAttribute("href") === currentPage) {
-    link.classList.add("active");
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".nav-item");
+
+  navLinks.forEach((link) => {
+    const linkHref = link.getAttribute("href");
+
+    if (linkHref === currentPage) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+
+    // Optional: update active state on click
+    link.addEventListener("click", () => {
+      navLinks.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
 });
 
 /*------------------------------------------------------ date and time */
@@ -52,97 +66,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*------------------------------------------------------ form validation*/
-// =============================
-// CONTACT FORM VALIDATION LOGIC
-// =============================
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form");
-  if (!form) return; // Exit if not on contact page
-
-  const nameInput = document.getElementById("contact-name");
-  const emailInput = document.getElementById("contact-email");
-  const subjectInput = document.getElementById("contact-subject");
-  const messageInput = document.getElementById("contact-message");
-  const successMsg = document.getElementById("contact-success");
-
-  const errorName = document.getElementById("error-contact-name");
-  const errorEmail = document.getElementById("error-contact-email");
-  const errorSubject = document.getElementById("error-contact-subject");
-  const errorMessage = document.getElementById("error-contact-message");
-
-  // Utility: show error message
-  function showError(input, errorField, message) {
-    input.setAttribute("aria-invalid", "true");
-    errorField.textContent = message;
-  }
-
-  // Utility: clear error
-  function clearError(input, errorField) {
-    input.removeAttribute("aria-invalid");
-    errorField.textContent = "";
-  }
-
-  // Validate email with regex
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
+  const feedback = document.getElementById("form-feedback");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let isValid = true;
 
-    // Clear previous messages
-    successMsg.textContent = "";
-    successMsg.classList.add("hidden");
+    // Reset feedback
+    feedback.classList.remove("error", "success", "show");
+    feedback.textContent = "";
 
-    // Validate name
-    if (!nameInput.value.trim()) {
-      showError(nameInput, errorName, "Full name is required.");
-      isValid = false;
-    } else {
-      clearError(nameInput, errorName);
-    }
+    // Collect values
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const subject = document.getElementById("contact-subject").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
 
-    // Validate email
-    if (!emailInput.value.trim()) {
-      showError(emailInput, errorEmail, "Email is required.");
-      isValid = false;
-    } else if (!isValidEmail(emailInput.value.trim())) {
-      showError(emailInput, errorEmail, "Please enter a valid email address.");
-      isValid = false;
-    } else {
-      clearError(emailInput, errorEmail);
-    }
+    // ✅ Fixed regex: no double backslashes
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validate subject
-    if (!subjectInput.value.trim()) {
-      showError(subjectInput, errorSubject, "Subject is required.");
-      isValid = false;
-    } else {
-      clearError(subjectInput, errorSubject);
-    }
-
-    // Validate message
-    if (!messageInput.value.trim()) {
-      showError(messageInput, errorMessage, "Message is required.");
-      isValid = false;
-    } else if (messageInput.value.trim().length < 10) {
-      showError(
-        messageInput,
-        errorMessage,
-        "Message must be at least 10 characters."
+    // Validate in order
+    if (!name) return showFeedback("Please enter your full name.", "error");
+    if (!email)
+      return showFeedback("Please enter your email address.", "error");
+    if (!emailPattern.test(email))
+      return showFeedback("Please enter a valid email address.", "error");
+    if (!subject) return showFeedback("Please enter a subject.", "error");
+    if (!message) return showFeedback("Please enter your message.", "error");
+    if (message.length < 10)
+      return showFeedback(
+        "Your message must be at least 10 characters long.",
+        "error"
       );
-      isValid = false;
-    } else {
-      clearError(messageInput, errorMessage);
-    }
 
-    // If valid, show success
-    if (isValid) {
-      successMsg.textContent = "Message sent successfully! Thank you.";
-      successMsg.classList.remove("hidden");
-      form.reset();
-    }
+    // ✅ All good
+    showFeedback("Your message has been sent successfully!", "success");
+    form.reset();
   });
+
+  function showFeedback(msg, type) {
+    feedback.textContent = msg;
+    feedback.classList.add(type, "show");
+  }
 });
