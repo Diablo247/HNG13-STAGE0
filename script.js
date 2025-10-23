@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.remove("active");
     }
 
-    // Optional: update active state on click
     link.addEventListener("click", () => {
       navLinks.forEach((l) => l.classList.remove("active"));
       link.classList.add("active");
@@ -74,20 +73,16 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Reset feedback
     feedback.classList.remove("error", "success", "show");
     feedback.textContent = "";
 
-    // Collect values
     const name = document.getElementById("contact-name").value.trim();
     const email = document.getElementById("contact-email").value.trim();
     const subject = document.getElementById("contact-subject").value.trim();
     const message = document.getElementById("contact-message").value.trim();
 
-    // ✅ Fixed regex: no double backslashes
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validate in order
     if (!name) return showFeedback("Please enter your full name.", "error");
     if (!email)
       return showFeedback("Please enter your email address.", "error");
@@ -101,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "error"
       );
 
-    // ✅ All good
     showFeedback("Your message has been sent successfully!", "success");
     form.reset();
   });
